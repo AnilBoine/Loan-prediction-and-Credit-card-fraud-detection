@@ -1,8 +1,5 @@
 from django.shortcuts import render
 
-# from django.shortcuts import render, redirect
-# from django.contrib.auth import authenticate, login
-
 from django.http import JsonResponse
 from django.http import HttpResponse
 import numpy
@@ -25,22 +22,6 @@ from sklearn.preprocessing import LabelEncoder
 import json
 from django.http import HttpResponse
 import csv
-
-
-
-# def login_view(request):
-#     if request.method == 'POST':
-#         username = request.POST['username']
-#         password = request.POST['password']
-#         user = authenticate(request, username=username, password=password)
-#         if user is not None:
-#             login(request, user)
-#             return redirect('loan')
-#         else:
-#             error_message = 'Invalid login credentials. Please try again.'
-#             return render(request, 'login.html', {'error_message': error_message})
-#     else:
-#         return render(request, 'login.html')
 
 
 
@@ -74,7 +55,7 @@ def predict_chances(request):
 
         # Unpickle model 
         model = joblib.load(r"C:\Users\ADMIN\Desktop\django\djangoapp\model.pkl")
-        # model = pd.read_pickle(r"C:\Users\ADMIN\Desktop\django\djangoapp\\model.pkl")
+        
         # Make prediction
         result = model.predict([[Gender, Married, Education, Self_Employed, ApplicantIncome, CoapplicantIncome, LoanAmount, Loan_Amount_Term, Credit_History, Property_Area]])
 
@@ -155,18 +136,7 @@ def card_result(request):
 
 
 
-# def loan_csv(request):
-#     response = HttpResponse(content_type='text/csv')
-#     response['Content-Disposition'] = 'attachment; filename="Loan_Result.csv"'
 
-#     writer = csv.writer(response)
-#     writer.writerow(['Gender'])
-
-#     Loan_Result = LoanResults.objects.all().values_list('Gender')
-#     for user in Loan_Result:
-#         writer.writerow(user)
-
-#     return response
 
 import csv
 from django.http import HttpResponse
