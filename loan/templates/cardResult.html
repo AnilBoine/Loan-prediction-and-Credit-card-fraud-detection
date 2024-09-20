@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block main %}
+<h4 style="text-align: center;"><a href="{% url 'loan:card_csv' %}" style="color: #007bff">Export to CSV</a></h4>
+    <div class="container" >
+        
+        <div class="row" style="margin-left: -112px; width: 120%;">
+
+        <h1>Card Fraud Prediction Results</h1>
+
+        <table class="table table-responsive" >
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Time</th>
+                <th scope="col">V1</th>
+                <th scope="col">V2</th>
+                <th scope="col">V3</th>
+                <th scope="col">V4</th>
+                <th scope="col">V5</th>
+                <th scope="col">V6</th>
+                <th scope="col">V7</th>
+                <th scope="col">V8</th>
+                <th scope="col">V9</th>
+                <th scope="col">V10</th>
+                <th scope="col">V11</th>
+                <th scope="col">V12</th>
+                <th scope="col">V13</th>
+                <th scope="col">V14</th>
+                <th scope="col">V15</th>
+                <th scope="col">V16</th>
+                <th scope="col">V17</th>
+                <th scope="col">V18</th>
+                <th scope="col">V19</th>
+                <th scope="col">V20</th>
+                <th scope="col">V21</th>
+                <th scope="col">V22</th>
+                <th scope="col">V23</th>
+                <th scope="col">V24</th>
+                <th scope="col">V25</th>
+                <th scope="col">V26</th>
+                <th scope="col">V27</th>
+                <th scope="col">V28</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Prediction</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for data in dataset %}
+                <tr>
+                <th scope="row">{{ data.id }}</th>
+                  <td>{{ data.Time }}</td>
+                  <td>{{ data.V1 }}</td>
+                  <td>{{ data.V2 }}</td>
+                  <td>{{ data.V3 }}</td>
+                  <td>{{ data.V4 }}</td>
+                  <td>{{ data.V5 }}</td>
+                  <td>{{ data.V6 }}</td>
+                  <td>{{ data.V7 }}</td>
+                  <td>{{ data.V8 }}</td>
+                  <td>{{ data.V9 }}</td>
+                  <td>{{ data.V10 }}</td>
+                  <td>{{ data.V11 }}</td>
+                  <td>{{ data.V12 }}</td>
+                  <td>{{ data.V13 }}</td>
+                  <td>{{ data.V14 }}</td>
+                  <td>{{ data.V15 }}</td>
+                  <td>{{ data.V16 }}</td>
+                  <td>{{ data.V17 }}</td>
+                  <td>{{ data.V18 }}</td>
+                  <td>{{ data.V19 }}</td>
+                  <td>{{ data.V20 }}</td>
+                  <td>{{ data.V21 }}</td>
+                  <td>{{ data.V22 }}</td>
+                  <td>{{ data.V23 }}</td>
+                  <td>{{ data.V24 }}</td>
+                  <td>{{ data.V25 }}</td>
+                  <td>{{ data.V26 }}</td>
+                  <td>{{ data.V27 }}</td>
+                  <td>{{ data.V28 }}</td>
+                  <td>{{ data.Amount }}</td>
+                  <td>{{ data.classification1 }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          
+        </div>
+    </div>
+{% endblock %}

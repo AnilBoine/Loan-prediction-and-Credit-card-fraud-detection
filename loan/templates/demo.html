@@ -1,0 +1,126 @@
+<div class="container pt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <h1>Iris Prediction</h1>
+            <form action="" id="post-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="Gender">Gender</label>
+                    <input type="text" step="0.1" class="form-control" id="sepal_length" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="Sepal Width">Sepal Width</label>
+                    <input type="number" step="0.1" class="form-control" id="sepal_width" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="petal_length">Petal Length</label>
+                    <input type="number" step="0.1" class="form-control" id="petal_length" placeholder="" required>
+                </div>
+                <div class="form-group">
+                    <label for="petal_width">Petal Width</label>
+                    <input type="number" step="0.1" class="form-control" id="petal_width" placeholder="" required>
+                </div>
+                <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal"
+                    data-target="#exampleModal">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+<div class=>
+    <div class="form-group">
+        <label for="Gender" class=>Gender</label>
+        <input type="text" id="Gender" name="Gender" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Married" class=>Married</label>
+        <input type="text" id="Married" name="Married" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for=" Education" class=>Education</label>
+        <input type="text" id="Education" name="Education" class="form-control">
+    </div>
+    <br>
+    <div class="form-group">
+        <label for="Self_Employed" class=>Self_Employed</label>
+        <input type="text" id="Self_Employed" name="Self_Employed" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="ApplicantIncome" class=>ApplicantIncome</label>
+        <input type="text" id="ApplicantIncome" name="ApplicantIncome" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="CoapplicantIncome" class=>CoapplicantIncome</label>
+        <input type="text" id="CoapplicantIncome" name="CoapplicantIncome" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="LoanAmount" class=>LoanAmount</label>
+        <input type="text" id="LoanAmount" name="LoanAmount" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Loan_Amount_Term" class=>Loan_Amount_Term</label>
+        <input type="text" id="Loan_Amount_Term" name="Loan_Amount_Term" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Credit_History" class=>Credit_History</label>
+        <input type="text" id="Credit_History" name="Credit_History" class="form-control">
+    </div>
+    <div class="form-group">
+        <label for="Property_Area" class=>Property_Area</label>
+        <input type="text" id="Property_Area" name="Property_Area" class="form-control">
+    </div>
+    <div>
+        <button type="submit"
+            class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Predict</button>
+    </div>
+    </section>
+    </form>
+
+    Gender, Married, Education, Self_Employed, ApplicantIncome, CoapplicantIncome, LoanAmount, Loan_Amount_Term, Credit_History, ApplicantIncome, Property_Area
+
+    Gender = text(request.POST.get('Gender'))
+    Married = text(request.POST.get('Married'))
+    Education = text(request.POST.get('Education'))
+    Self_Employed = text(request.POST.get('Self_Employed'))
+    ApplicantIncome = text(request.POST.get('ApplicantIncome'))
+    CoapplicantIncome = text(request.POST.get('CoapplicantIncome'))
+    LoanAmount = text(request.POST.get('LoanAmount'))
+    Loan_Amount_Term = text(request.POST.get('Loan_Amount_Term'))
+    Credit_History = text(request.POST.get('Credit_History'))
+    ApplicantIncome = text(request.POST.get('ApplicantIncome'))
+    Property_Area = text(request.POST.get('Property_Area'))
+
+
+    Gender:$('#Gender').val(),
+    Married:$('#Married').val(),
+    Education:$('#Education').val(),
+    Self_Employed:$('#Self_Employed').val(),
+    ApplicantIncome:$('#ApplicantIncome').val(),
+    CoapplicantIncome:$('#CoapplicantIncome').val(),
+    LoanAmount:$('#LoanAmount').val(),
+    Loan_Amount_Term:$('#Loan_Amount_Term').val(),
+    Credit_History:$('#Credit_History').val(),
+    ApplicantIncome:$('#ApplicantIncome').val(),
+    Property_Area:$('#Property_Area').val(),
+
+    <div>Gender: <span id="Ge"></span></div>
+    <div>Married: <span id="Ma"></span></div>
+    <div>Education: <span id="Ed"></span></div>
+    <div>Self_Employed: <span id="SE"></span></div>
+    <div>ApplicantIncome: <span id="Ap"></span></div>
+    <div>CoapplicantIncome: <span id="Co"></span></div>
+    <div>Credit_History: <span id="CH"></span></div>
+    <div>ApplicantIncome: <span id="AI"></span></div>
+    <div>Property_Area: <span id="PA"></span></div>
+
+    document.getElementById("Ge").innerHTML = json['Gender']
+    document.getElementById("Ma").innerHTML = json['Married']
+    document.getElementById("Ed").innerHTML = json['Education']
+    document.getElementById("SE").innerHTML = json['Self_Employed']
+    document.getElementById("Ap").innerHTML = json['ApplicantIncome']
+    document.getElementById("Co").innerHTML = json['CoapplicantIncome']
+    document.getElementById("CH").innerHTML = json['Credit_History']
+    document.getElementById("AI").innerHTML = json['ApplicantIncome']
+    document.getElementById("PA").innerHTML = json['Property_Area']

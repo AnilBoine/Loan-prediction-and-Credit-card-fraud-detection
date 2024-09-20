@@ -1,0 +1,289 @@
+{% extends "base.html" %}
+
+{% block main %}
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Prediction Results</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div>Time: <span id="T"></span></div>
+                <div>V1: <span id="1"></span></div>
+                <div>V2: <span id="2"></span></div>
+                <div>V3: <span id="3"></span></div>
+                <div>V4: <span id="4"></span></div>
+                <div>V5: <span id="5"></span></div>
+                <div>V6: <span id="6"></span></div>
+                <div>V7: <span id="7"></span></div>
+                <div>V8: <span id="8"></span></div>
+                <div>V9: <span id="9"></span></div>
+                <div>V10: <span id="10"></span></div>
+                <div>V11: <span id="11"></span></div>
+                <div>V12: <span id="12"></span></div>
+                <div>V13: <span id="13"></span></div>
+                <div>V14: <span id="14"></span></div>
+                <div>V15: <span id="15"></span></div>
+                <div>V16: <span id="16"></span></div>
+                <div>V17: <span id="17"></span></div>
+                <div>V18: <span id="18"></span></div>
+                <div>V19: <span id="19"></span></div>
+                <div>V20: <span id="20"></span></div>
+                <div>V21: <span id="21"></span></div>
+                <div>V22: <span id="22"></span></div>
+                <div>V23: <span id="23"></span></div>
+                <div>V24: <span id="24"></span></div>
+                <div>V25: <span id="25"></span></div>
+                <div>V26: <span id="26"></span></div>
+                <div>V27: <span id="27"></span></div>
+                <div>V28: <span id="28"></span></div>
+                <div>Amount <span id="A"></span></div>
+
+                <h5 class="pt-3">Prediction Result:</h5>
+                <div id="cardprediction"></div>
+                <div>0 for Normal Transcation </div>
+                <div>1 for Fruad in Transcation </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <a class="btn btn-primary" href="/cardResult" role="button">View DB</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container pt-5">
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <h2>Card Fruad Prediction</h2>
+            <form action="" id="post-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="Time" class=>Time:</label>
+                    <input type="number" step="1" id="Time" name="Time" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V1" class=>V1:</label>
+                    <input type="number" step="any" type="number" step="any" id="V1" name="V1" class="form-control"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label for="V2" class=>V2:</label>
+                    <input type="number" step="any" id="V2" name="V2" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V3" class=>V3:</label>
+                    <input type="number" step="any" id="V3" name="V3" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V4" class=>V4:</label>
+                    <input type="number" step="any" id="V4" name="V4" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V5" class=>V5:</label>
+                    <input type="number" step="any" id="V5" name="V5" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V6" class=>V6:</label>
+                    <input type="number" step="any" id="V6" name="V6" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V7" class=>V7:</label>
+                    <input type="number" step="any" id="V7" name="V7" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V8" class=>V8:</label>
+                    <input type="number" step="any" id="V8" name="V8" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V9" class=>V9:</label>
+                    <input type="number" step="any" id="V9" name="V9" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V10" class=>V10:</label>
+                    <input type="number" step="any" id="V10" name="V10" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V11" class=>V11:</label>
+                    <input type="number" step="any" id="V11" name="V11" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V12" class=>V12:</label>
+                    <input type="number" step="any" id="V12" name="V12" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V13" class=>V13:</label>
+                    <input type="number" step="any" id="V13" name="V13" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V14" class=>V14:</label>
+                    <input type="number" step="any" id="V14" name="V14" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V15" class=>V15:</label>
+                    <input type="number" step="any" id="V15" name="V15" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V16" class=>V16:</label>
+                    <input type="number" step="any" id="V16" name="V16" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V17" class=>V17:</label>
+                    <input type="number" step="any" id="V17" name="V17" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V18" class=>V18:</label>
+                    <input type="number" step="any" id="V18" name="V18" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V19" class=>V19:</label>
+                    <input type="number" step="any" id="V19" name="V19" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V20" class=>V20:</label>
+                    <input type="number" step="any" id="V20" name="V20" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V21" class=>V21:</label>
+                    <input type="number" step="any" id="V21" name="V21" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V22" class=>V22:</label>
+                    <input type="number" step="any" id="V22" name="V22" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V23" class=>V23:</label>
+                    <input type="number" step="any" id="V23" name="V23" class="form-control" required>
+
+                </div>
+                <div class="form-group">
+                    <label for="V24" class=>V24:</label>
+                    <input type="number" step="any" id="V24" name="V24" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V25" class=>V25:</label>
+                    <input type="number" step="any" id="V25" name="V25" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V26" class=>V26:</label>
+                    <input type="number" step="any" id="V26" name="V26" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V27" class=>V27:</label>
+                    <input type="number" step="any" id="V27" name="V27" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="V28" class=>V28:</label>
+                    <input type="number" step="any" id="V28" name="V28" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="Amount" class=>Amount:</label>
+                    <input type="number" step="1" id="Amount" name="Amount" class="form-control" required>
+
+                </div>
+                <div class="form-group text-center">
+                    <button type="submit" value="Submit" class="btn btn-primary" data-toggle="modal"
+                        data-target="#exampleModal">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).on('submit', '#post-form', function (e) {
+        e.preventDefault();
+        $.ajax({
+            type: 'POST',
+            url: '{% url "loan:Fraud_prediction" %}',
+            data: {
+                Time: $('#Time').val(),
+                V1: $('#V1').val(),
+                V2: $('#V2').val(),
+                V3: $('#V3').val(),
+                V4: $('#V4').val(),
+                V5: $('#V5').val(),
+                V6: $('#V6').val(),
+                V7: $('#V7').val(),
+                V8: $('#V8').val(),
+                V9: $('#V9').val(),
+                V10: $('#V10').val(),
+                V11: $('#V11').val(),
+                V12: $('#V12').val(),
+                V13: $('#V13').val(),
+                V14: $('#V14').val(),
+                V15: $('#V15').val(),
+                V16: $('#V16').val(),
+                V17: $('#V17').val(),
+                V18: $('#V18').val(),
+                V19: $('#V19').val(),
+                V20: $('#V20').val(),
+                V21: $('#V21').val(),
+                V22: $('#V22').val(),
+                V23: $('#V23').val(),
+                V24: $('#V24').val(),
+                V25: $('#V25').val(),
+                V26: $('#V26').val(),
+                V27: $('#V27').val(),
+                V28: $('#V28').val(),
+                Amount: $('#Amount').val(),
+                csrfmiddlewaretoken: $('input[name=csrfmiddlewaretoken]').val(),
+                action: 'post'
+            },
+            success: function (json) {
+                document.forms["post-form"].reset();
+                document.getElementById("cardprediction").innerHTML = json['result1']
+                document.getElementById("T").innerHTML = json['Time']
+                document.getElementById("1").innerHTML = json['V1']
+                document.getElementById("2").innerHTML = json['V2']
+                document.getElementById("3").innerHTML = json['V3']
+                document.getElementById("4").innerHTML = json['V4']
+                document.getElementById("5").innerHTML = json['V5']
+                document.getElementById("6").innerHTML = json['V6']
+                document.getElementById("7").innerHTML = json['V7']
+                document.getElementById("8").innerHTML = json['V8']
+                document.getElementById("9").innerHTML = json['V9']
+                document.getElementById("10").innerHTML = json['V10']
+                document.getElementById("11").innerHTML = json['V11']
+                document.getElementById("12").innerHTML = json['V12']
+                document.getElementById("13").innerHTML = json['V13']
+                document.getElementById("14").innerHTML = json['V14']
+                document.getElementById("15").innerHTML = json['V15']
+                document.getElementById("16").innerHTML = json['V16']
+                document.getElementById("17").innerHTML = json['V17']
+                document.getElementById("18").innerHTML = json['V18']
+                document.getElementById("19").innerHTML = json['V19']
+                document.getElementById("20").innerHTML = json['V20']
+                document.getElementById("21").innerHTML = json['V21']
+                document.getElementById("22").innerHTML = json['V22']
+                document.getElementById("23").innerHTML = json['V23']
+                document.getElementById("24").innerHTML = json['V24']
+                document.getElementById("25").innerHTML = json['V25']
+                document.getElementById("26").innerHTML = json['V26']
+                document.getElementById("27").innerHTML = json['V27']
+                document.getElementById("28").innerHTML = json['V28']
+                document.getElementById("A").innerHTML = json['Amount']
+                console.log(json);
+
+            },
+            error: function (xhr, errmsg, err) {
+                console.log(xhr.responseText);
+            }
+        });
+    })
+</script>
+
+{% endblock %}
